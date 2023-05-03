@@ -1,14 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:yellow_class_assessment/helper/authenticate.dart';
 import 'package:yellow_class_assessment/screens/home.dart';
 import 'package:yellow_class_assessment/screens/signin.dart';
 //import 'package:chatapp/screens/welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:yellow_class_assessment/services/database.dart';
 
 import 'helper/shared_preference.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp();
   runApp(const MyApp());
 }
@@ -33,6 +36,7 @@ class _MyAppState extends State<MyApp> {
     await HelperFunctions.getUserLoggedInSharedPreference().then((value) {
       setState(() {
         userIsLoggedIn = value;
+        print(userIsLoggedIn);
       });
     });
   }
@@ -46,6 +50,7 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: userIsLoggedIn != null ? const HomeScreen() : Authenticate());
+        home: //Authenticate()
+            userIsLoggedIn == true ? HomeScreen() : Authenticate());
   }
 }

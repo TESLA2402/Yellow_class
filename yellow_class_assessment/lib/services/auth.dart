@@ -1,3 +1,4 @@
+import 'package:yellow_class_assessment/helper/shared_preference.dart';
 import 'package:yellow_class_assessment/model/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -43,6 +44,7 @@ class AuthService {
   }
 
   Future signOut() async {
+    HelperFunctions.saveUserLoggedInSharedPreference(false);
     try {
       return await _auth.signOut();
     } catch (e) {

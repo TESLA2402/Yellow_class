@@ -30,7 +30,7 @@ class _AddContactsState extends State<AddContacts> {
         padding: const EdgeInsets.fromLTRB(20, 140, 20, 36),
         child: Column(children: [
           Text(
-            "Create New Buyer Account",
+            "Create New Contact",
             style: AppTypography.textMd
                 .copyWith(fontSize: 20, fontWeight: FontWeight.w700),
           ),
@@ -38,7 +38,7 @@ class _AddContactsState extends State<AddContacts> {
             height: 4,
           ),
           Text(
-            "Please fill up all inputs to create a new buyer account.",
+            "Please fill up all inputs to create a new contact account.",
             textAlign: TextAlign.center,
             style: AppTypography.textSm.copyWith(fontSize: 14),
           ),
@@ -90,14 +90,15 @@ class _AddContactsState extends State<AddContacts> {
                 DatabaseMethods service = DatabaseMethods();
                 final FirebaseAuth _auth = FirebaseAuth.instance;
                 final User user = await _auth.currentUser!;
-                Contact buyer = Contact(
-                    user_id: user.uid,
+                Contact contact = Contact(
+                    user_id: user.email!,
                     name: _nameController.text,
                     userName: _userNameController.text,
                     email: _emailController.text,
                     phone: _phoneController.text,
                     address: _addressController.text);
-                await service.addBuyer(buyer);
+
+                await service.addContact(contact);
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const HomeScreen()),
@@ -117,7 +118,7 @@ class _AddContactsState extends State<AddContacts> {
                         color: const Color(0xffF57C51),
                       ),
                       child: Center(
-                        child: Text("Continue",
+                        child: Text("Add",
                             style: AppTypography.textMd.copyWith(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w700)),
@@ -135,9 +136,9 @@ class _AddContactsState extends State<AddContacts> {
 }
 
 class FieldsFormat extends StatefulWidget {
-  String title;
-  TextEditingController text;
-  int maxlines;
+  final String title;
+  final TextEditingController text;
+  final int maxlines;
   FieldsFormat(
       {Key? key,
       required this.title,
@@ -163,7 +164,7 @@ class _FieldsFormatState extends State<FieldsFormat> {
       SizedBox(
         height: widget.title == "Add Address*" ? 76 : 40,
         child: TextFormField(
-            enabled: widget.title == "Phone Number*" ? false : true,
+            enabled: true,
             textAlign: TextAlign.start,
             maxLines: widget.maxlines,
             decoration: InputDecoration(
