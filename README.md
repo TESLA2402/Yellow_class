@@ -23,7 +23,7 @@ flutter build apk --release
 ##### <ul><li>Frontend: Flutter</li><li>Backend: Firebase</li></ul>
 
 # App over website
-- Looking at the feasibility of the problem, most of the people use mobile apps over websites for food ordering apps
+- Looking at the feasibility of the problem, most of the people use mobile apps over websites for contact apps
 - We chose dart/flutter over Kotlin as it is cross platform language/framework, so our app can have same codebase but can run over both iOS as well as android
 
 # Drive Link
