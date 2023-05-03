@@ -8,6 +8,15 @@ flutter build apk --release
 ```
 - Make sure you have Flutter SDK and Android Studio installed
 
+## Tasks Completed
+
+#### <ul>
+- The app consist of an authentication framework (username/password or google or facebook) supported from the backend.
+- After login, open a screen which shows the list of existing contacts created by the logged in user.
+- On the listing screen itself, the user has the option to create a new contact and delete an existing contact.
+- Brownie points Task 1: Authentication persists on revisiting the flutter app.
+- Brownie points Task 2: Deleting a contact in place is done in place without the need to re-render the complete list.
+</ul>
 ## Features
 
 #### <ul>
