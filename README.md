@@ -8,14 +8,15 @@ flutter build apk --release
 ```
 - Make sure you have Flutter SDK and Android Studio installed
 
-## Pages
+## Features
 
 #### <ul>
-- Login & Signup Screens
+- Login & Signup
 - Home Page
   - Add Contacts
   - Delete Contacts
   - Logout
+  - Shared Preference
 </ul>
 
 ## TechStack Used
