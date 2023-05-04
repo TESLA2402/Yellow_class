@@ -17,6 +17,7 @@ flutter build apk --release
 - Brownie points Task 1: Authentication persists on revisiting the flutter app.
 - Brownie points Task 2: Deleting a contact in place is done in place without the need to re-render the complete list.
 </ul>
+
 ## Features
 
 #### <ul>
